@@ -1,0 +1,24 @@
+#+OPTIONS: toc:nil \n:t
+#+OPTIONS: ^:{}
+#+TITLE: nginx-image-filter 模块 watermark 版
+
+* 如何使用
+** Gentoo
+下载源码到 ~/usr/src/ngx_http_image_filter_module~
+#+BEGIN_SRC bash
+echo 'NGINX_ADD_MODULES="/usr/src/ngx_http_image_filter_module"' > /etc/portage/make.conf
+echo 'media-libs/gd jpeg png' > /etc/portage/package.use/nginx
+echo 'www-servers/nginx NGINX_MODULES_HTTP: -image_filter' > /etc/portage/package.use/nginx
+emerge -av media-libs/libexif media-libs/gd www-servers/nginx
+#+END_SRC
+
+** 源码编译
+#+BEGIN_SRC bash
+./configure ... --add-module=/usr/src/ngx_http_image_filter_module
+#+END_SRC
+
+* Reference
+- [[https://github.com/intaro/nginx-image-filter-watermark]]
+
+- [[https://github.com/linsongze/ngx_http_image_filter_module]]
+
